@@ -26,5 +26,11 @@ pipeline{
 				sh './mvnw verify'
 			}
 		}
+		
+		stage('Build Docker Image') {
+		  steps {
+			sh 'docker build -t 10.0.2.15:5000/voxxedsg .'
+		  }
+		}
 	}
 }
