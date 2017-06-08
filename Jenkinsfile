@@ -5,25 +5,25 @@ pipeline{
 		stage('Prepare Environment'){
 			steps{
 				sh 'chmod +x ./mvnw'
-				sh './mvnw clean -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080 -X -e'
+				sh './mvnw clean -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080'
 			}
 		}
 		
 		stage('Compile'){
 			steps{
-				sh './mvnw compile'
+				sh './mvnw compile -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080'
 			}
 		}
 		
 		stage('Unit Test'){
 			steps{
-				sh './mvnw test'
+				sh './mvnw test -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080'
 			}
 		}
 		
 		stage('Integration Test'){
 			steps{
-				sh './mvnw verify'
+				sh './mvnw verify -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080'
 			}
 		}
 		
