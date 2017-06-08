@@ -49,7 +49,7 @@ pipeline{
 		  }
 		}
 		
-		stage("Release") {
+		/*stage("Release") {
 			steps {
 				sh "docker -H 192.168.1.4:2375 stop calculator | true"
 				sh "docker -H 192.168.1.4:2375 rm calculator | true"
@@ -62,6 +62,6 @@ pipeline{
 				sh 'chmod +x ./smoke_test.sh'
 				sh "./smoke_test.sh"
 			}
-		}
+		}*/
 	}
 }
