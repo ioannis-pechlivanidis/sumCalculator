@@ -5,7 +5,7 @@ pipeline{
 		stage('Prepare Environment'){
 			steps{
 				sh 'chmod +x ./mvnw'
-				sh './mvnw clean -Dhttp.proxyHost=http://172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=http://172.28.12.5 -Dhttps.proxyPort=8080 -X -e'
+				sh './mvnw clean -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080 -X -e'
 			}
 		}
 		
