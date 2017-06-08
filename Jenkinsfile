@@ -29,18 +29,18 @@ pipeline{
 		
 		stage('Build Docker Image') {
 		  steps {
-			sh 'docker build -t 10.0.2.15:5000/voxxedsg .'
+			sh 'docker build -t 10.0.2.15:5000/calculator .'
 		  }
 		}
 		
 		stage("Docker push") {
 		  steps {
-			sh "docker push 10.0.2.15:5000/voxxedsg"
+			sh "docker push 10.0.2.15:5000/calculator"
 		  }
 		}
 		stage("Acceptance test") {
 		  steps {
-			sh "docker run -d -p 8765:8080 --name calculator 10.0.2.15:5000/voxxedsg"
+			sh "docker run -d -p 8765:8080 --name calculator 10.0.2.15:5000/calculator"
 			sleep 60
 			sh 'chmod +x ./acceptance_test.sh'
 			sh "./acceptance_test.sh"
