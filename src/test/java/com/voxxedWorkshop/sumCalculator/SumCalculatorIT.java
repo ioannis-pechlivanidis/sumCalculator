@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.MOCK)
 @AutoConfigureMockMvc
-public class SumCalculatorIntegrationTests {
+public class SumCalculatorIT {
 
 	/*@Test
 	public void contextLoads() {
