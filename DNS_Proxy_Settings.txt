@@ -1,0 +1,36 @@
+#become a root user
+sudo -i
+
+-------------------------------------------------------------------
+#define DNS
+#edit /etc/resolve.conf
+nano /etc/resolve.conf
+#add nameserver entry
+nameserver 172.25.4.22
+
+-------------------------------------------------------------------
+#define proxy server
+
+#edit /etc/bash.bashrc
+nano /etc/bash.bashrc
+#at the end of file add the following entries
+export http_proxy=http://172.28.12.5:8080
+export https_proxy=http://172.28.12.5:8080
+
+#edit /etc/environment
+nano /etc/environment
+#at the end of file add the following entries
+export http_proxy=http://172.28.12.5:8080
+export https_proxy=http://172.28.12.5:8080
+
+#create / edit file /etc/apt.apt.conf
+#at the end of file add the following entries
+Acquire::http::Proxy "http://172.28.12.5:8080";
+Acquire::https::Proxy "http://172.28.12.5:8080";
+
+#git setting
+git config --global http.proxy http://172.28.12.5:8080
+git config --global https.proxy http://172.28.12.5:8080
+
+#the mvnw (Maven wrapper) commands need to be modified also with a proxy argument
+-------------------------------------------------------------------
