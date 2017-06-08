@@ -48,5 +48,20 @@ pipeline{
 			sh "docker rm calculator"
 		  }
 		}
+		
+		stage("Release") {
+			steps {
+				sh "docker -H 192.168.1.4:2375 stop calculator | true"
+				sh "docker -H 192.168.1.4:2375 rm calculator | true"
+				sh "docker -H 192.168.1.4:2375 run -d -p 8080:8080 --name calculator 192.168.1.2:5000/calculator"
+			}
+		}
+		stage("Smoke test") {
+			steps {
+				sleep 60
+				sh 'chmod +x ./smoke_test.sh'
+				sh "./smoke_test.sh"
+			}
+		}
 	}
 }
