@@ -1,12 +1,12 @@
-package com.voxxedWorkshop.sumCalculator;
+package com.voxxedWorkshop.calculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SumCalculatorApplication {
+public class CalculatorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SumCalculatorApplication.class, args);
+		SpringApplication.run(CalculatorApplication.class, args);
 	}
 }
