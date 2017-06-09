@@ -26,7 +26,7 @@ pipeline{
 				sh './mvnw verify -Dhttp.proxyHost=172.28.12.5 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=172.28.12.5 -Dhttps.proxyPort=8080'
 			}
 		}
-		
+		/*
 		stage('Build Docker Image') {
 		  steps {
 			sh 'docker build -t 10.0.2.15:5000/calculator .'
@@ -47,7 +47,7 @@ pipeline{
 			sh "docker stop calculator"
 			sh "docker rm calculator"
 		  }
-		}
+		}*/
 		
 		/*stage("Release") {
 			steps {
