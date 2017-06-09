@@ -40,7 +40,7 @@ pipeline{
 		}
 		stage("Acceptance test") {
 		  steps {
-			sh "docker run -d -p 8765:8080 --name calculator 10.0.2.15:5000/calculator"
+			sh "docker run -d -p 8084:8080 --name calculator 10.0.2.15:5000/calculator"
 			sleep 60
 			sh 'chmod +x ./acceptance_test.sh'
 			sh "./acceptance_test.sh"
